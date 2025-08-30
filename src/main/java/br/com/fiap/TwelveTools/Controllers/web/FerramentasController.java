@@ -5,11 +5,12 @@ import br.com.fiap.TwelveTools.dtos.FerramentaDTO;
 import br.com.fiap.TwelveTools.model.Ferramenta;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-@RestController("webFerramentasController")
+@Controller("webFerramentasController")
 @RequestMapping("/ferramentas")
 public class FerramentasController {
 
