@@ -23,14 +23,14 @@ public class FerramentasController {
         return "listar";
     }
 
-    @GetMapping
+    @GetMapping("/nova")
     public String novaFerramenta(Model model) {
-        model.addAttribute("ferramentas", new Ferramenta());
+        model.addAttribute("ferramenta", new FerramentaDTO());
         return "formulario";
     }
 
     @PostMapping()
-    public String salvarFerramenta(@Valid @RequestBody FerramentaDTO entidade) {
+    public String salvarFerramenta(@Valid @ModelAttribute("ferramenta") FerramentaDTO entidade) {
         service.post(entidade);
         return "redirect:/ferramentas";
     }
