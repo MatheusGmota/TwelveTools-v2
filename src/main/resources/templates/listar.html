@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ferramentas — Listagem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/style.css}" href="/style.css">
+</head>
+<body>
+<header class="page-header">
+    <h1>Ferramentas</h1>
+    <div class="header-actions">
+        <a class="btn btn-primary" th:href="@{/ferramentas/nova}" href="/ferramentas/nova">+ Nova Ferramenta</a>
+    </div>
+</header>
+
+
+<main class="container">
+    <section class="card">
+        <div class="table-wrapper">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="col-id">ID</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Classificação</th>
+                    <th>Tamanho</th>
+                    <th>Preço (R$)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="empty" th:if="${#lists.isEmpty(ferramentas)}">
+                    <td colspan="7">Nenhuma ferramenta encontrada.</td>
+                </tr>
+
+
+                <tr th:each="f : ${ferramentas}">
+                    <td class="mono" th:text="${f.id}">1</td>
+                    <td th:text="${f.nome}">Chave de Fenda</td>
+                    <td th:text="${f.tipo}">Manual</td>
+                    <td th:text="${f.classificacao}">Uso Doméstico</td>
+                    <td th:text="${f.tamanho}">Médio</td>
+                    <td th:text="${#numbers.formatDecimal(f.preco, 1, 'COMMA', 2, 'POINT')}">25,90</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+</body>
