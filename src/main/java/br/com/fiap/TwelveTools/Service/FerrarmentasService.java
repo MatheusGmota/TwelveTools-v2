@@ -64,13 +64,9 @@ public class FerrarmentasService {
         return existente;
     }
 
-    public String delete(Long id) {
-        Ferramenta ferramenta = repository.findById(id).orElse(null);
-        if(ferramenta != null) {
-            repository.delete(ferramenta);
-            return "Ferramenta deletada com sucesso!";
-        } else {
-            return "Não foi possível deletar a ferramenta!";
-        }
+    public Object delete(Long id) {
+        Ferramenta ferramenta = repository.findById(id).orElseThrow(()-> new IllegalArgumentException("Id:" + id + "não encontrado"));
+        repository.delete(ferramenta);
+        return ferramenta;
     }
 }

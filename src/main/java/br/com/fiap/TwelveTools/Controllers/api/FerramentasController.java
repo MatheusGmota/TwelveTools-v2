@@ -62,8 +62,9 @@ public class FerramentasController {
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable("id") Long id){
-        return service.delete(id);
+    public ResponseEntity<Object> delete(@PathVariable("id") Long id){
+        Object delete = service.delete(id);
+        return ResponseEntity.ok(delete);
     }
 
 }

@@ -34,4 +34,11 @@ public class FerramentasController {
         service.post(entidade);
         return "redirect:/ferramentas";
     }
+
+    @GetMapping("delete/{id}")
+    public String deletarFerramenta(@PathVariable("id") Long id, Model model){
+        service.delete(id);
+        return "redirect:/ferramentas";
+    }
+
 }
