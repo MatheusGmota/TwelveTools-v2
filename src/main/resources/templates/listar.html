@@ -47,7 +47,7 @@
                     <td th:text="${f.tamanho}">Médio</td>
                     <td th:text="${#numbers.formatDecimal(f.preco, 1, 'COMMA', 2, 'POINT')}">25,90</td>
                     <td>
-                        <a th:href="@{/ferramentas/delete/{id}(id=${f.id})}" class="btn btn-primary" >Editar</a>
+                        <a th:href="@{/ferramentas/editar/{id}(id=${f.id})}" class="btn btn-primary" >Editar</a>
                         <a th:href="@{/ferramentas/delete/{id}(id=${f.id})}" class="btn btn-primary" >Excluir</a>
                     </td>
                 </tr>

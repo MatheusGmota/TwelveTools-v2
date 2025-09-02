@@ -41,4 +41,15 @@ public class FerramentasController {
         return "redirect:/ferramentas";
     }
 
+    @GetMapping("editar/{id}")
+    public String editarFerramenta(@PathVariable("id") Long id, Model model){
+        model.addAttribute("ferramenta", service.getById(id));
+        return "formularioEdit";
+    }
+
+    @PostMapping("atualizar/{id}")
+    public String atualizarFerramenta(@PathVariable("id") Long id, Model model, FerramentaDTO ferramenta){
+        service.put(id, ferramenta);
+        return "redirect:/ferramentas";
+    }
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ferramenta Edição</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<h1 th:text="'Ferramenta ' + ${ferramenta.nome}"></h1>
+<form action="#" th:action="@{/ferramentas/atualizar/{id}(id=${ferramenta.id})}" th:object="${ferramenta}" method="post">
+    <div>
+        <label>Nome:</label>
+        <label>
+            <input type="text" th:field="${ferramenta.nome}"/>
+        </label>
+    </div>
+    <div>
+        <label>Tipo:</label>
+        <label>
+            <input type="text" th:field="${ferramenta.tipo}">
+        </label>
+    </div>
+
+    <div>
+        <label>Classificacao:</label>
+        <label>
+            <input type="text" th:field="${ferramenta.classificacao}">
+        </label>
+    </div>
+    <div>
+        <label>Tamanho:</label>
+        <label>
+            <input type="text" th:field="${ferramenta.tamanho}">
+        </label>
+    </div>
+    <div>
+        <label>Preço:</label>
+        <label>
+            <input type="number" th:field="${ferramenta.preco}">
+        </label>
+    </div>
+    <div>
+        <button type="submit">Salvar</button>
+    </div>
+</form>
+<div>
+    <a class="btn btn-primary" th:href="@{/ferramentas}" href="/ferramentas">Voltar</a>
+</div>
+</body>
+</html>
