@@ -9,6 +9,9 @@
 # Link deploy
 [https://twelvetools.onrender.com/ferramentas](https://twelvetools-v2.onrender.com/ferramentas)
 
+# Link do vídeo
+[https://youtu.be/T6SfqvLYsjc](https://youtu.be/T6SfqvLYsjc)
+
 ## Configuração Spring Initializr
 <img width="1726" height="946" alt="tela-initalizr" src="https://github.com/user-attachments/assets/c93c3c6c-4b6c-4eb8-84e7-2694cc631cd2" />
 
