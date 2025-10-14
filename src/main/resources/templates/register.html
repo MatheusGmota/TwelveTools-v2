@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Twelve Tools - Cadastro</title>
+</head>
+<body>
+    <div class="header" th:replace="~{fragments/header :: header}">&nbsp;</div>
+
+    <form class="mt-5" th:action="@{/login}" method="post" style="width: 350px;">
+        <h1 class="fs-4 fw-normal text-center mb-3 text-white" >Crie seu cadastro na Twelve Tools</h1>
+        <div th:if="${param.error}" class="alert alert-danger">
+            Usuário ou senha inválidos!
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-white" for="username">Usuário: </label>
+            <input class="form-control shadow" type="text" id="username" name="username" autofocus="autofocus" placeholder="Digite seu usuário"/>
+        </div>
+        <div class="mb-5">
+            <label class="form-label text-white" for="password">Senha:</label>
+            <input class="form-control shadow" type="password" id="password" name="password" placeholder="Digite sua senha"/>
+        </div>
+        <div>
+            <button class="mt-1 btn btn-success w-100" type="submit">Enviar</button>
+        </div>
+    </form>
+    <div>
+        <p class="text-white mt-3 fs-6">Já tem conta? <span><a class="color" th:href="@{/login}">Faça login</a></span></p>
+    </div>
+</body>
+</html>

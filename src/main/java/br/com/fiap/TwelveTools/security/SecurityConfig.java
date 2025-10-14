@@ -20,6 +20,7 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(authorizeConfig -> authorizeConfig
                         .requestMatchers("/").permitAll()
+                        .requestMatchers("/register").permitAll()
                         .requestMatchers("/ferramentas/nova").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )

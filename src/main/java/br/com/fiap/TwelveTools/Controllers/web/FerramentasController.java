@@ -20,13 +20,13 @@ public class FerramentasController {
     @GetMapping
     public String listarFerramentas(Model model) {
         model.addAttribute("ferramentas", service.getAll());
-        return "listar";
+        return "ferramentas/listar";
     }
 
     @GetMapping("/nova")
     public String novaFerramenta(Model model) {
         model.addAttribute("ferramenta", new FerramentaDTO());
-        return "formulario";
+        return "ferramentas/formulario";
     }
 
     @PostMapping()
@@ -44,7 +44,7 @@ public class FerramentasController {
     @GetMapping("editar/{id}")
     public String editarFerramenta(@PathVariable("id") Long id, Model model){
         model.addAttribute("ferramenta", service.getById(id));
-        return "formularioEdit";
+        return "ferramentas/formularioEdit";
     }
 
     @PostMapping("atualizar/{id}")
