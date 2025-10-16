@@ -1,7 +1,6 @@
 package br.com.fiap.TwelveTools.Controllers.web;
 
 import br.com.fiap.TwelveTools.dtos.AuthenticationDTO;
-import br.com.fiap.TwelveTools.dtos.SignupDTO;
 import br.com.fiap.TwelveTools.model.User;
 import br.com.fiap.TwelveTools.model.enums.UserRole;
 import br.com.fiap.TwelveTools.repository.UserRepository;
@@ -10,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,7 +35,8 @@ public class LoginController {
     }
 
     @GetMapping("/register")
-    public String signup() {
+    public String signup(Model model) {
+        model.addAttribute("data", new AuthenticationDTO(null, null));
         return "register";
     }
 
@@ -43,9 +45,21 @@ public class LoginController {
         if (result.hasErrors())
             return "redirect:/register";
 
-        this.repository.save(new User(data.login(), data.login(), UserRole.ADMIN));
+        if (this.repository.findByLogin(data.login()).isPresent()) {
+            result.addError(new ObjectError("message", "Usuário já existe"));
+            return "redirect:/register";
+        }
 
-        return "redirect:/login";
+        String encoded = new BCryptPasswordEncoder().encode(data.password());
+        try {
+            User newUser = new User(data.login(), encoded, UserRole.ADMIN);
+            this.repository.save(newUser);
+            return "redirect:/login";
+        } catch (Exception e) {
+
+            return "redirect:/register";
+        }
+
     }
 
     @PostMapping("/login")
