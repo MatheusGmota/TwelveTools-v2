@@ -7,7 +7,7 @@
 * Matheus Gregorio Mota - RM557254
 
 # Link deploy
-[https://twelvetools.onrender.com/ferramentas](https://twelvetools-v2.onrender.com/ferramentas)
+[https://twelvetools-v2.onrender.com](https://twelvetools-v2.onrender.com)
 
 # Link do vídeo
 [https://youtu.be/T6SfqvLYsjc](https://youtu.be/T6SfqvLYsjc)
