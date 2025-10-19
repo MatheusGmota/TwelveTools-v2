@@ -13,7 +13,8 @@
 [https://youtu.be/T6SfqvLYsjc](https://youtu.be/T6SfqvLYsjc)
 
 ## Configuração Spring Initializr
-<img width="1726" height="946" alt="tela-initalizr" src="https://github.com/user-attachments/assets/c93c3c6c-4b6c-4eb8-84e7-2694cc631cd2" />
+<img width="1919" height="921" alt="image" src="https://github.com/user-attachments/assets/07902bd2-a8cf-42b8-ad98-d2443c5efade" />
+
 
 ## API Endpoints
 - `GET - api/ferramentas`  
@@ -28,12 +29,11 @@
 
 Além das páginas, existe também um botao `Excluir`.
 
-## Link do Video demonstrativo
-
-
 ## Ferramentas e Linguagens 
 - Spring Boot
 - Java
 - Maven
 - Hateoas
+- Spring Securiy
+- Thymeleaf
 - Intellij
